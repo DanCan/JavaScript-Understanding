@@ -104,3 +104,25 @@ var fs3 = buildFuncitons3();
 fs3[0](); // outputs: 0
 fs3[1](); // outputs: 1
 fs3[2](); // outputs: 2
+
+// #5 Simple but better example of Usage
+function makeGreeting(language){
+
+    return function (firstname, lastname){
+
+        if(language === 'en'){
+            console.log('Hello', firstname, lastname);
+        }
+
+        if(language === 'es'){
+            console.log('Hola', firstname, lastname);
+        }
+    }
+
+}
+
+var greetEnglish = makeGreeting('en');
+var greetSpanish = makeGreeting('es');
+
+greetEnglish('Dan', 'Can');
+greetSpanish('Dan', 'Can');
