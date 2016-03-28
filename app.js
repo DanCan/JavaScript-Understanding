@@ -9,11 +9,10 @@ var firstname = 'John';
 
 firstname = 'Dan';
 
-(function(name) {
+(function(global, name) {
     var greeting = 'Inside IIFFE: Goodbye';
+    console.log("Global greeting:", global.greeting);
     console.log(greeting + ' ' + name);
 })
 //Envoked outside paren
-(firstname);
-
-//WHICH EVER Makes the Most Sense. Both work but be consistent.
+(window, firstname);
