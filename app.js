@@ -1,3 +1,3 @@
 var g = G$('John', 'Doe');
 
-g.greet().setLanguage('es').greet(true);
+g.greet().setLanguage('es').greet(true).log();
