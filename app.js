@@ -1,3 +1,5 @@
+
+// This will be hoisted to the top and declared
 function mapForEach(arr, fn){
     var newArr = [];
     for ( var i=0; i<arr.length; i++){
@@ -22,7 +24,8 @@ var arr3 = mapForEach(arr1, function(item){
 });
 console.log(arr3);
 
-
+// This variable will be hoisted to the top as undefined.
+// Then when this code is reached by the browser, only then will it be declared.
 var checkPastLimit = function(limiter, item){
     return item > limiter;
 }
@@ -36,6 +39,12 @@ var boundPastLimit = function(limiter){
         return item > limiter;
     }.bind(this, limiter);
 };
+
+// A modular way of reusing functions with bind.
+// This overrides the previous assignment.
+boundPastLimit = function(limiter) {
+    return checkPastLimit.bind(this, limiter);   
+}
 
 var arr5 = mapForEach(arr1, boundPastLimit(1));
 console.log(arr5);
